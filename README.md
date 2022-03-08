@@ -1,1 +1,2 @@
-# Assignment_3_Grid_Maker
+# grid-maker-starter-code
+Starter code for Assignment 3 - Grid Maker.
