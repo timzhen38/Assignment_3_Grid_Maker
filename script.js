@@ -1,15 +1,43 @@
 let numRows = 0;
 let numCols = 0;
-let colorSelected; 
+let colorSelected;
+let grid = document.getElementById("grid");
 
 // Add a row
 function addR() {
-    alert("Clicked Add Row"); // Replace this line with your code.
+    if(numRows===0)
+        numCols=0;
+   let row = grid.insertRow(numRows);
+   let col = row.insertCell(row.length-1);
+   col.setAttribute("onclick", "fillC(this)");
+   for(let i=0;i<numCols;i++)
+   {
+     let col = row.insertCell(row.length-1);
+     col.setAttribute("onclick", "fillC(this)");
+     
+   }
+   numRows++;
 }
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    if(numRows===0)
+    {
+         numCols=0;
+         addR();
+    }
+    else
+    {
+         let allRows = document.querySelectorAll("tr");
+         for(let i=0;i<allRows.length;i++)
+         {
+             let col = document.createElement("td")
+             col.setAttribute("onclick", "fillC(this)");
+             allRows[i].appendChild(col);
+ 
+         }
+         numCols++;
+    }
 }
 
 // Remove a row
