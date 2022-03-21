@@ -47,7 +47,26 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+    let rows = document.getElementsByTagName("tr");
+    if(numCols >= 0)
+    {
+        numCols--;  //subtract one from the column counter if there are still existing columns
+    }
+    for(let i = rows.length-1; i >= 0; i--)
+    {
+        if(numCols >= 0)
+        {
+            let cell = rows[i].deleteCell(-1);  //remove cell in the last position(-1)
+        }
+        else
+        {
+            document.getElementById("grid").deleteRow(i);   //delete entire row if there are no rows left
+            if(i == 0)
+            {
+                numRows = 0;
+            }
+        }
+    }
 }
 
 // Sets global variable for selected color
@@ -61,7 +80,7 @@ function fillU(){
     let cells = document.getElementsByTagName("td");
     for (let i = 0; i < cells.length; i++)
     {
-        if(cells[i].style.backgroundColor == "white")
+        if(cells[i].style.backgroundColor == "")    //if the cell has no color then we set the color to the color selected
         {
             cells[i].style.backgroundColor = colorSelected;
         }
