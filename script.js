@@ -2,6 +2,7 @@ let numRows = 0;
 let numCols = 0;
 let colorSelected;
 let grid = document.getElementById("grid");
+let cells = document.getElementsByTagName("td");
 
 // Add a row
 function addR() {
@@ -77,7 +78,6 @@ function selectColor(){
 
 // Fill all uncolored cells
 function fillU(){
-    let cells = document.getElementsByTagName("td");
     for (let i = 0; i < cells.length; i++)
     {
         if(cells[i].style.backgroundColor == "")    //if the cell has no color then we set the color to the color selected
@@ -89,10 +89,17 @@ function fillU(){
 
 // Fill all cells
 function fillAll(){
-    alert("Clicked Fill All"); // Replace this line with your code.
+    for (let i = 0; i < cells.length; i++)
+        cells[i].style.backgroundColor = colorSelected; // fills the cell with the color selected
 }
 
 // Clear all cells
 function clearAll(){
     alert("Clicked Clear All"); // Replace this line with your code.
+}
+
+// Onclick function for grid
+// Fills the cell with color selected
+function fillC(cell){
+    cell.style.backgroundColor = colorSelected; //fills the cell that was clicked with the color selected
 }
