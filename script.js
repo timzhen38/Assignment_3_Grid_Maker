@@ -78,11 +78,18 @@ function selectColor(){
 
 // Fill all uncolored cells
 function fillU(){
-    for (let i = 0; i < cells.length; i++)
+    if(colorSelected == "SELECT" || !colorSelected)
     {
-        if(cells[i].style.backgroundColor == "")    //if the cell has no color then we set the color to the color selected
+        alert("Please select a color");
+    }
+    else
+    {
+        for (let i = 0; i < cells.length; i++)
         {
-            cells[i].style.backgroundColor = colorSelected;
+            if(cells[i].style.backgroundColor == "")    //if the cell has no color then we set the color to the color selected
+            {
+                cells[i].style.backgroundColor = colorSelected;
+            }
         }
     }
 }
