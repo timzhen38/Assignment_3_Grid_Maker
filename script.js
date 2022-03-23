@@ -43,7 +43,18 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    
+    let rows = document.getElementsByTagName("tr");
+    if(numRows >= 0)
+    {
+        numRows--;  // subtract one from the row counter if there are still existing columns
+    }
+
+    console.log("numRows = " + numRows);
+    
+    grid.deleteRow(numRows);
+
+    
 }
 
 // Remove a column
@@ -102,7 +113,8 @@ function fillAll(){
 
 // Clear all cells
 function clearAll(){
-    alert("Clicked Clear All"); // Replace this line with your code.
+    for (let i = 0; i < cells.length; i++)
+        cells[i].style.backgroundColor = ""; // clears the color from all the cells 
 }
 
 // Onclick function for grid
