@@ -112,7 +112,15 @@ function clearAll(){
 }
 
 // Onclick function for grid
-// Fills the cell with color selected
+// Fills the cell with color selected and turns it back to white if the cell contains a color
 function fillC(cell){
-    cell.style.backgroundColor = colorSelected; //fills the cell that was clicked with the color selected
+    if(cell.style.backgroundColor == ""){
+        cell.style.backgroundColor = colorSelected; //fills the cell that was clicked with the color selected
+    }
+    else if(cell.style.backgroundColor != colorSelected.toLowerCase()){
+        cell.style.backgroundColor = colorSelected; //fills the cell that was clicked with the color selected
+    }
+    else{
+        cell.style.backgroundColor = ""; //if there is a color filled reset the color to white
+    }
 }
