@@ -63,6 +63,7 @@ function removeC() {
             rows[i].deleteCell(-1);  //remove cell in the last position
         }
     }
+    // if deleting the last column, also delete all the rows
     else{
         while(numRows > 0)
         {
