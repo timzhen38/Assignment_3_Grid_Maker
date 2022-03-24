@@ -43,24 +43,18 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    
     let rows = document.getElementsByTagName("tr");
-    if(numRows >= 0)
+    if(numRows > 0)
     {
         numRows--;  // subtract one from the row counter if there are still existing columns
     }
-
-    console.log("numRows = " + numRows);
-    
     grid.deleteRow(numRows);
-
-    
 }
 
 // Remove a column
 function removeC() {
     let rows = document.getElementsByTagName("tr");
-    if(numCols >= 0)
+    if(numCols > 0)
     {
         numCols--;  //subtract one from the column counter if there are still existing columns
     }
